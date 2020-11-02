@@ -1,0 +1,23 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: test EC2 create
+#Parameters:
+Resources:
+  Ec2InstanceServer:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      AvailabilityZone: "ap-northeast-1a"
+      ImageId: "ami-0ce107ae7af2e92b5"
+      InstanceType: "t3.nano"
+      KeyName: "kurita"
+      SubnetId: "subnet-0773d45adf953be74"
+      SecurityGroups:
+        - sg-0f3985efc0f62ee71
+      BlockDeviceMappings:
+        - DeviceName: "/dev/xvda"
+          Ebs:
+            VolumeSize: "8"
+            VolumeType: "gp2"
+      Tags:
+        - Key: Name
+          Value: "test"
+#Outputs:
